@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @task.content %>
+</p>
+
+<p>
+  <b>Reward:</b>
+  <%= @task.reward %>
+</p>
+
+<p>
+  <b>Translated text:</b>
+  <%= @task.translated_text %>
+</p>
+
+<p>
+  <b>Work:</b>
+  <%= @task.work %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

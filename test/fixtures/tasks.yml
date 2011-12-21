@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  content: MyText
+  reward: 1.5
+  translated_text: MyText
+  work: 
+
+two:
+  content: MyText
+  reward: 1.5
+  translated_text: MyText
+  work: 

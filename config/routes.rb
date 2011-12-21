@@ -1,4 +1,6 @@
 CloudTranslation::Application.routes.draw do
+  resources :tasks
+
   resources :works
 
   devise_for :workers

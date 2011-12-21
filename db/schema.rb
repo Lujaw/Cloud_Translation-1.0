@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221170429) do
+ActiveRecord::Schema.define(:version => 20111221173431) do
 
   create_table "clients", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(:version => 20111221170429) do
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
 
+  create_table "tasks", :force => true do |t|
+    t.text     "content"
+    t.float    "reward"
+    t.text     "translated_text"
+    t.integer  "work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["work_id"], :name => "index_tasks_on_work_id"
+
   create_table "workers", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
@@ -48,5 +59,19 @@ ActiveRecord::Schema.define(:version => 20111221170429) do
 
   add_index "workers", ["email"], :name => "index_workers_on_email", :unique => true
   add_index "workers", ["reset_password_token"], :name => "index_workers_on_reset_password_token", :unique => true
+
+  create_table "works", :force => true do |t|
+    t.text     "content"
+    t.string   "from"
+    t.string   "to"
+    t.float    "reward"
+    t.text     "additional_info"
+    t.text     "translated_text"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "works", ["client_id"], :name => "index_works_on_client_id"
 
 end
