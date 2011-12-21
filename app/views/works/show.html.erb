@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @work.content %>
+</p>
+
+<p>
+  <b>From:</b>
+  <%= @work.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @work.to %>
+</p>
+
+<p>
+  <b>Reward:</b>
+  <%= @work.reward %>
+</p>
+
+<p>
+  <b>Additional info:</b>
+  <%= @work.additional_info %>
+</p>
+
+<p>
+  <b>Translated text:</b>
+  <%= @work.translated_text %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @work.client %>
+</p>
+
+
+<%= link_to 'Edit', edit_work_path(@work) %> |
+<%= link_to 'Back', works_path %>

@@ -1,0 +1,35 @@
+<h1>Listing works</h1>
+
+<table>
+  <tr>
+    <th>Content</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Reward</th>
+    <th>Additional info</th>
+    <th>Translated text</th>
+    <th>Client</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @works.each do |work| %>
+  <tr>
+    <td><%= work.content %></td>
+    <td><%= work.from %></td>
+    <td><%= work.to %></td>
+    <td><%= work.reward %></td>
+    <td><%= work.additional_info %></td>
+    <td><%= work.translated_text %></td>
+    <td><%= work.client %></td>
+    <td><%= link_to 'Show', work %></td>
+    <td><%= link_to 'Edit', edit_work_path(work) %></td>
+    <td><%= link_to 'Destroy', work, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Work', new_work_path %>
