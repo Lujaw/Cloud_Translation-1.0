@@ -1,0 +1,10 @@
+<header>
+<% if client_signed_in?%>
+<%= link_to "Home", root_path %>
+<span id = "welcome_message">Welcome <%= link_to current_client.email,''%></span>
+ <%= link_to "Sign Out", destroy_client_session_path, method: :delete %>
+<% else %>
+<%= link_to "Sign in", new_client_session_path %>
+<%= link_to "Sign Up", new_client_registration_path %>
+<% end %>
+</header>

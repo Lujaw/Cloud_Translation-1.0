@@ -1,4 +1,8 @@
 CloudTranslation::Application.routes.draw do
+  devise_for :workers
+
+  devise_for :clients
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
