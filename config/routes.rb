@@ -1,13 +1,16 @@
 CloudTranslation::Application.routes.draw do
-  devise_for :workers
 
-  devise_for :clients
+    devise_for :client do
+       match '/client' => "works#index", :as => :client_root
 
-  resources :clients do
-      resources :works do
-        resources :tasks
-      end
-    end
+     end
+     resources :works
+
+     devise_for :workers do
+       match '/worker' => "tasks#index", :as => :worker_root
+     end
+    resources :tasks
+     root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -15,9 +18,6 @@ CloudTranslation::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-
-  root :to => "home#index"
-
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
