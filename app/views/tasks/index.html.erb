@@ -4,26 +4,16 @@
   <tr>
     <th>Content</th>
     <th>Reward</th>
-    <th>Translated text</th>
-    <th>Work</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.content %></td>
     <td><%= task.reward %></td>
-    <td><%= task.translated_text %></td>
-    <td><%= task.work %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Translate', edit_task_path(task) %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Task', new_task_path %>

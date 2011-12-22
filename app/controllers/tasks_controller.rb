@@ -80,4 +80,18 @@ class TasksController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def change_status
+   @task = Task.find(params[:id])
+     @task.Approved = "Approved"
+     @task.status = "Translated"
+     if @task.update_attributes(params[:task])
+       format.html { redirect_to @task, notice: 'Task has been successfully updated.' }
+       format.json { head :ok }
+     else
+       format.html { render action: "edit" }
+       format.json { render json: @task.errors, status: :unprocessable_entity }
+     end
+
+    end
 end

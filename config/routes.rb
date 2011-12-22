@@ -6,6 +6,8 @@ CloudTranslation::Application.routes.draw do
      end
      resources :works
 
+     match 'tasks/:id/change_status/:status' => 'tasks#change_status', :as => "task_status"
+
      devise_for :workers do
        match '/worker' => "tasks#index", :as => :worker_root
      end
