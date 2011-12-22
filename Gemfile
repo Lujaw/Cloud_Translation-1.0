@@ -14,6 +14,7 @@ gem 'devise'
 gem 'capybara'
 gem 'autotest'
 gem 'formtastic'
+gem 'tactful_tokenizer'
 
 
 # Gems used only for assets and not required
