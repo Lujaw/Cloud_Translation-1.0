@@ -30,10 +30,24 @@
   <%= @work.translated_text %>
 </p>
 
-<p>
-  <b>Client:</b>
-  <%= @work.client %>
-</p>
+<table>
+  <tr>
+    <th>Content</th>
+    <th>Translation</th>
+  </tr>
+
+<% @work.tasks.each do |task| %>
+  <tr>
+    <td><%= task.content %></td>
+    <td><%= task.translated_text %></td>
+    <td><%= link_to 'Approve',   task_status_path(task,"Approved") %></td>
+    <td><%= link_to 'Reject',   task_status_path(task,0) %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
 
 
 <%= link_to 'Edit', edit_work_path(@work) %> |
