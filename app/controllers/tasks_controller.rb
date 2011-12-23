@@ -13,11 +13,11 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @task = Task.find(params[:id])
+    @tasks = Task.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @task }
+      format.json { render json: @tasks }
     end
   end
 
@@ -82,16 +82,12 @@ class TasksController < ApplicationController
   end
 
   def change_status
-   @task = Task.find(params[:id])
-     @task.Approved = "Approved"
-     @task.status = "Translated"
-     if @task.update_attributes(params[:task])
-       format.html { redirect_to @task, notice: 'Task has been successfully updated.' }
-       format.json { head :ok }
-     else
-       format.html { render action: "edit" }
-       format.json { render json: @task.errors, status: :unprocessable_entity }
-     end
-
+    @task = Task.find(params[:id])
+    if params[:status] == "Approved"
+      @task.Approved = true
+      @task.status = "Translated"
+      @task.save
+      redirect_to work_path(@task.work_id)
     end
+  end
 end

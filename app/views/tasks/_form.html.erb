@@ -1,26 +1,27 @@
 <%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<% if @task.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @task.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <h1>Text to be Translated </h1>
-    <%= f.label :Text %><br />
-    <%= f.text_area :content %>
+<div class="translation area">
+  <div class = "translation_box">
+    <%= f.label "Text to be Translated" %><br />
+    <%= f.text_area :content ,:disabled=>true%>
   </div>
-  <div class="field">
+  <div class = "translation_box">
     <%= f.label :translated_text %><br />
     <%= f.text_area :translated_text %>
   </div>
+</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => "Submit"%>
   </div>
-<% end %>
+  <% end %>

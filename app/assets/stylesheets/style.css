@@ -181,8 +181,13 @@ input, textarea {
   -webkit-border-radius:.3em;
   -moz-border-radius:.3em;
   padding:2px 4px;
-  width:168px;
+  width: 400px;
   background:#fff url(sprites.png) repeat-x 0px -120px;
+}
+
+
+textarea {
+  height: 300px;
 }
 
 input:focus, textarea:focus {
@@ -216,4 +221,26 @@ footer {
 
 footer a {
   margin:0px 5px;
+}
+
+#top_bar{
+  float:right;
+}
+
+#translation_area{
+  float:left ;
+
+}
+
+.translation_box {
+  width:400px;
+  float:left;
+  margin:0 20px;
+
+}
+.translation_box textarea {
+  width:300px;
+
+
+
 }

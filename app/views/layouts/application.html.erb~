@@ -9,11 +9,11 @@
 <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <% if not (client_signed_in? || worker_signed_in?) %>
-       <%= link_to 'Login as Client', client_session_path %>
+    <% if (!client_signed_in? && !worker_signed_in?) %>
+       <%= link_to 'Login as Client   ', client_session_path %>
        <%= link_to 'Login as Worker', worker_session_path %>
     <% end %>
-    <%= render 'layouts/header' %>
+  <%= render 'layouts/header' %>
   <%= yield %>
 </body>
 </html>

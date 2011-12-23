@@ -37,18 +37,16 @@
   </tr>
 
 <% @work.tasks.each do |task| %>
-  <tr>
-    <td><%= task.content %></td>
-    <td><%= task.translated_text %></td>
-    <td><%= link_to 'Approve',   task_status_path(task,"Approved") %></td>
-    <td><%= link_to 'Reject',   task_status_path(task,0) %></td>
-  </tr>
+    <% if task.Approved != true %>
+      <tr>
+        <td><%= task.content %></td>
+        <td><%= task.translated_text %></td>
+        <td><%= link_to 'Approve',   task_status_path(task,"Approved") %></td>
+        <td><%= link_to 'Reject',   task_status_path(task,0) %></td>
+      </tr>
+   <% end %>
 <% end %>
+
 </table>
-
-
-
-
-
 <%= link_to 'Edit', edit_work_path(@work) %> |
 <%= link_to 'Back', works_path %>

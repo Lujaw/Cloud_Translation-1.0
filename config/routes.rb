@@ -1,6 +1,6 @@
 CloudTranslation::Application.routes.draw do
 
-    devise_for :client do
+    devise_for :clients do
        match '/client' => "works#index", :as => :client_root
 
      end

@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <b>Content:</b>
-  <%= @task.content %>
+  <%= @tasks.content %>
 </p>
 
 <p>
   <b>Reward:</b>
-  <%= @task.reward %>
+  <%= @tasks.reward %>
 </p>
 
 <p>
   <b>Translated text:</b>
-  <%= @task.translated_text %>
+  <%= @tasks.translated_text %>
 </p>
-<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Edit', edit_task_path(@tasks) %> |
 <%= link_to 'Back', tasks_path %>
