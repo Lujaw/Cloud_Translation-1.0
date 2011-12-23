@@ -2,7 +2,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all
+    @works = current_client.works.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
-    @work = Work.find(params[:id])
+    @work = current_client.works.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class WorksController < ApplicationController
   # GET /works/new
   # GET /works/new.json
   def new
-    @work = Work.new
+    @work = current_client.works.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +40,7 @@ class WorksController < ApplicationController
   # POST /works
   # POST /works.json
   def create
-    @work = Work.new(params[:work])
+    @work = current_client.works.new(params[:work])
 
     respond_to do |format|
       if @work.save
@@ -56,7 +56,7 @@ class WorksController < ApplicationController
   # PUT /works/1
   # PUT /works/1.json
   def update
-    @work = Work.find(params[:id])
+    @work = Works.find(params[:id])
 
     respond_to do |format|
       if @work.update_attributes(params[:work])

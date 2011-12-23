@@ -240,7 +240,20 @@ footer a {
 }
 .translation_box textarea {
   width:300px;
+}
 
 
+#translation_client_view{
+  border: 1px solid black;
+  width:-moz-available;
+}
 
+#translation_client_view th{
+  background:#ccc;
+  border:1px solid black;
+}
+
+#translation_client_view td{
+  background:#fff;
+  border:1px solid black;
 }

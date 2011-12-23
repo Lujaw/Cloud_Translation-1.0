@@ -6,16 +6,12 @@ gem 'rails', '3.1.3'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'sqlite3'
 gem 'execjs'
 gem 'therubyracer'
 gem 'json'
 gem 'devise'
-gem 'capybara'
-gem 'autotest'
-gem 'formtastic'
 gem 'tactful_tokenizer'
-gem 'pry'
+
 
 
 # Gems used only for assets and not required
@@ -39,6 +35,24 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-doc'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'launchy'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'valid_attribute'
+
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
+end
+
 
 group :test do
   # Pretty printed test output

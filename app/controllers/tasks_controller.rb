@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.where(:status =="Pending" )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +13,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+
     @tasks = Task.find(params[:id])
 
     respond_to do |format|
@@ -60,7 +61,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to @task, notice: 'Your Translation has been submitted' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -83,7 +84,7 @@ class TasksController < ApplicationController
 
   def change_status
     @task = Task.find(params[:id])
-    if params[:status] == "Approved"
+     if params[:status] == "Approved"
       @task.Approved = true
       @task.status = "Translated"
       @task.save
@@ -91,3 +92,5 @@ class TasksController < ApplicationController
     end
   end
 end
+
+

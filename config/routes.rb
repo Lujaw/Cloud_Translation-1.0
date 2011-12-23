@@ -1,18 +1,18 @@
 CloudTranslation::Application.routes.draw do
 
-    devise_for :clients do
-       match '/client' => "works#index", :as => :client_root
+  devise_for :clients do
+    match '/client' => "works#index", :as => :client_root
 
-     end
-     resources :works
+  end
+  resources :works
 
-     match 'tasks/:id/change_status/:status' => 'tasks#change_status', :as => "task_status"
+  match 'tasks/:id/change_status/:status' => 'tasks#change_status', :as => "task_status"
 
-     devise_for :workers do
-       match '/worker' => "tasks#index", :as => :worker_root
-     end
-    resources :tasks
-     root :to => "home#index"
+  devise_for :workers do
+    match '/worker' => "tasks#index", :as => :worker_root
+  end
+  resources :tasks
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

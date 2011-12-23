@@ -1,17 +1,17 @@
 <%= form_for(@work) do |f| %>
-  <% if @work.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
+<% if @work.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
 
-      <ul>
-      <% @work.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @work.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 <div id ="form">
-   <% languages = ["English", "Nepali", "French"]  %>
+  <% languages = ["English", "Nepali", "French"]  %>
   <div class="field" style="float:left">
     <%= f.label :from %><br />
     <%= select( "work", "from", languages, {:prompt => true}) %>
