@@ -1,19 +1,19 @@
 <h1>Listing tasks</h1>
 
-<table>
+<table width = "100%">
   <tr>
     <th>Original Text</th>
     <th>Reward</th>
   </tr>
-
 <% @tasks.each do |task| %>
   <tr>
-    <td><%= task.content %></td>
+    <td style = "text-align: justify"><%= task.content.truncate(200) %></td>
     <td><%= task.reward %></td>
     <td><%= link_to 'Translate', edit_task_path(task) %></td>
   </tr>
 <% end %>
 </table>
+<%= will_paginate @task%>
 
 <br />
 

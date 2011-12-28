@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <b>Content:</b>
@@ -34,6 +34,7 @@
   <tr>
     <th width= 350px>Content</th>
     <th width= 350px>Translation</th>
+    <th width= 350px>Action</th>
   </tr>
 
   <% @work.tasks.each do |task| %>
@@ -41,8 +42,16 @@
   <tr>
     <td><%= task.content %></td>
     <td><%= task.translated_text %></td>
-    <td><%= link_to 'Approve',   task_status_path(task,"Approved") %></td>
-    <td><%= link_to 'Reject',   task_status_path(task,0) %></td>
+    <% if task.translated_text != nil %>
+     <% if task.status == "Translated" &&  %>
+        <td>Approved</td>
+     <% else %>
+        <td><%= link_to 'Approve',   task_status_path(task,"Approved") %>  ||
+        <%= link_to 'Reject',   task_status_path(task,0) %></td>
+     <% end%>
+      <% else %>
+      <td>Not Translated</td>
+  <% end%>
   </tr>
   <% #end %>
   <% end %>

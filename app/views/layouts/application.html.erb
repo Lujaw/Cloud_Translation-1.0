@@ -8,6 +8,8 @@
 </head>
 <body>
     <%= render 'layouts/header' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <% if not (client_signed_in? || worker_signed_in?) %>
        <%= link_to 'Login as Client', client_session_path %> <br/>
        <%= link_to 'Login as Worker', worker_session_path %>

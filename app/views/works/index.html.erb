@@ -1,6 +1,6 @@
-<h1>Listing works</h1>
-
-<table>
+<%= link_to 'Submit New ', new_work_path %>
+<h1>Submitted works</h1>
+<table id ="Worklist" >
   <tr>
     <th>Content</th>
     <th>From</th>
@@ -9,23 +9,20 @@
     <th>Additional info</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
-
 <% @works.each do |work| %>
   <tr>
-    <td><%= work.content %></td>
+    <td width =380px class="justify"><%= work.content.truncate(200) %></td>
     <td><%= work.from %></td>
     <td><%= work.to %></td>
     <td><%= work.reward %></td>
-    <td><%= work.additional_info %></td>
-    <td><%= link_to 'Show', work %></td>
-    <td><%= link_to 'Edit', edit_work_path(work) %></td>
-    <td><%= link_to 'Destroy', work, confirm: 'Are you sure?', method: :delete %></td>
+    <td width =180px class="justify"><%= work.additional_info %></td>
+    <td><%= link_to 'Details', work %></td>
+    <td><%= link_to 'Delete', work, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate @work%>
 <br />
 
-<%= link_to 'New Work', new_work_path %>
+

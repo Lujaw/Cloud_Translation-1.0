@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.where(:status =="Pending" )
+    @tasks = Task.where(:status =>"Pending" ).paginate(:page => params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @task, notice: 'Translation was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
@@ -60,6 +60,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     respond_to do |format|
+      @task.worker_id = current_worker.id
       if @task.update_attributes(params[:task])
         format.html { redirect_to @task, notice: 'Your Translation has been submitted' }
         format.json { head :ok }
@@ -88,6 +89,10 @@ class TasksController < ApplicationController
       @task.Approved = true
       @task.status = "Translated"
       @task.save
+      @task.worker
+      @workers = Worker.find(@task.worker_id)
+      @workers.credit = @workers.credit + @task.reward
+      @workers.save
       redirect_to work_path(@task.work_id)
     end
   end

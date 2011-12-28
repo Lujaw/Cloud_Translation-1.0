@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111222092129) do
+ActiveRecord::Schema.define(:version => 20111228063045) do
 
   create_table "clients", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20111222092129) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "budget"
+    t.integer  "works_submitted",                       :default => 0
   end
 
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20111222092129) do
     t.datetime "updated_at"
     t.string   "status",          :default => "Pending"
     t.boolean  "Approved",        :default => false
+    t.integer  "worker_id"
   end
 
   add_index "tasks", ["work_id"], :name => "index_tasks_on_work_id"
@@ -57,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20111222092129) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "credit",                                :default => 0
+    t.integer  "works_completed",                       :default => 0
   end
 
   add_index "workers", ["email"], :name => "index_workers_on_email", :unique => true

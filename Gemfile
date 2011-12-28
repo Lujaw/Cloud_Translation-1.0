@@ -11,6 +11,7 @@ gem 'therubyracer'
 gem 'json'
 gem 'devise'
 gem 'tactful_tokenizer'
+gem 'will_paginate'
 
 
 
