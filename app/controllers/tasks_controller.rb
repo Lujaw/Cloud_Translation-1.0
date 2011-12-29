@@ -93,13 +93,11 @@ helper_method :sort_column , :sort_direction
         redirect_to work_path(@task.work_id)
     end
   end
-
 private
   def sort_column
    Task.column_names.include?(params[:sort]) ? params[:sort] : "content"
   end
-
-def sort_direction
+  def sort_direction
    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

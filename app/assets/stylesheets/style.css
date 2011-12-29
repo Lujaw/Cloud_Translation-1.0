@@ -286,3 +286,11 @@ footer a {
 .tasklist th .desc {
   background-image: url(/images/down_arrow.gif);
 }
+#welcome_message{
+  padding :0 15px;
+}
+#additional_info{
+  width: 200px;
+  height: 50px;
+}
+

@@ -1,5 +1,7 @@
 <h1>Available Translation Tasks</h1>
-<%= form_tag tasks_path, :method => 'get', :id => "tasks_search" do %>
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<%= form_tag tasks_path, :method => 'get', :id =>"tasks_search" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
