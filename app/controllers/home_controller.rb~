@@ -1,9 +1,0 @@
-class HomeController < ApplicationController
-  def index
-     if client_signed_in?
-      redirect_to works_path
-    elsif worker_signed_in?
-      redirect_to root_url+'workers/'+current_worker.id.to_s+'/works/'
-    end
-  end
-end
