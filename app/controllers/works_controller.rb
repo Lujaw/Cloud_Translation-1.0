@@ -2,7 +2,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works =Work.where(:client_id => current_client.id).paginate(:page => params[:page], :per_page => 10)
+    @works                               = Work.where(:client_id => current_client.id).paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.json
   def show
-    @work = current_client.works.find(params[:id])
+    @work                                = current_client.works.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class WorksController < ApplicationController
   # GET /works/new
   # GET /works/new.json
   def new
-    @work = current_client.works.new
+    @work                                = current_client.works.new
 
       respond_to do |format|
         format.html # new.html.erb
@@ -33,16 +33,16 @@ class WorksController < ApplicationController
   end
   # GET /works/1/edit
   def edit
-    @work = Work.find(params[:id])
+    @work                                = Work.find(params[:id])
   end
   # POST /works
   # POST /works.json
   def create
-    @work = current_client.works.new(params[:work])
+    @work                                = current_client.works.new(params[:work])
     respond_to do |format|
       if (current_client.budget >= @work.reward)
         if @work.save
-          current_client.budget = current_client.budget - @work.reward
+          current_client.budget          = current_client.budget - @work.reward
           current_client.works_submitted = current_client.works_submitted + 1
           current_client.save
           format.html { redirect_to @work, notice: 'Work was successfully created.' }
@@ -52,16 +52,15 @@ class WorksController < ApplicationController
           format.json { render json: @work.errors, status: :unprocessable_entity }
         end
       else
-        # flash[:notice] = "You do not have enough budget"
+        # flash[:notice]                 = "You do not have enough budget"
         format.html { redirect_to @work, notice: 'You do not have enough budget  .' }
-
       end
    end
 end
   # PUT /works/1
   # PUT /works/1.json
   def update
-    @work = Works.find(params[:id])
+    @work                                = Works.find(params[:id])
     respond_to do |format|
       if @work.update_attributes(params[:work])
         format.html { redirect_to @work, notice: 'Work was successfully updated.' }
@@ -76,7 +75,7 @@ end
   # DELETE /works/1
   # DELETE /works/1.json
   def destroy
-    @work = Work.find(params[:id])
+    @work                                = Work.find(params[:id])
     @work.destroy
     respond_to do |format|
       format.html { redirect_to works_url }

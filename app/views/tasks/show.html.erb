@@ -3,14 +3,11 @@
   <%= @tasks.content %>
 </p>
 <p>
-  <b>Translated text:</b>
+  <b>Your Translation:</b>
   <%= @tasks.translated_text %>
 </p>
 <p>
   <b>Reward:</b>
-  <%= @tasks.reward %>
+  <%= @tasks.reward.round(2) %>
 </p>
-
-
-<%= link_to 'Edit', edit_task_path(@tasks) %> |
 <%= link_to 'Back', tasks_path %>

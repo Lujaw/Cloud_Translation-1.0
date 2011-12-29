@@ -3,8 +3,11 @@ class Work < ActiveRecord::Base
   belongs_to :client
   has_many :tasks
   after_create :create_tasks
+  validates :content, :presence =>true
+  validates :to, :presence =>true
+  validates :from, :presence =>true
 
-    private
+  private
       def create_tasks
            @tactful_tokenizer ||= TactfulTokenizer::Model.new
             result =  @tactful_tokenizer.tokenize_text(self.content)
@@ -16,7 +19,3 @@ class Work < ActiveRecord::Base
        end
 
 end
-
-
-
-

@@ -14,10 +14,12 @@
 <div class="translation area">
   <div class = "translation_box">
     <%= f.label "Text to be Translated" %><br />
+    <%= @task.work.from     %><br />
     <%= f.text_area :content ,:disabled=>true%>
   </div>
   <div class = "translation_box">
     <%= f.label :translated_text %><br />
+    <%= @task.work.to     %><br />
     <%= f.text_area :translated_text %>
   </div>
 </div>

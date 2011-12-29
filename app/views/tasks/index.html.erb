@@ -1,19 +1,27 @@
-<h1>Listing tasks</h1>
-
-<table width = "100%">
+<h1>Available Translation Tasks</h1>
+<%= form_tag tasks_path, :method => 'get', :id => "tasks_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="tasks"><%= render 'tasks' %></div>
+<% end %>
+<table class="tasklist" width = "100%">
   <tr>
-    <th>Original Text</th>
-    <th>Reward</th>
+    <th width=450 px><%= sortable "content","Original" %></th>
+    <th><%= sortable "from" ,"From"  %></th>
+    <th><%= sortable "to" ,"To"%></th>
+    <th><%= sortable "reward" ,"Reward" %></th>
   </tr>
 <% @tasks.each do |task| %>
   <tr>
-    <td style = "text-align: justify"><%= task.content.truncate(200) %></td>
-    <td><%= task.reward %></td>
+    <td  style = "text-align: justify" ><%= task.content.truncate(200) %></td>
+    <td><%= task.work.from %></td>
+    <td><%= task.work.to %></td>
+    <td><%= task.reward.round(2) %></td>
     <td><%= link_to 'Translate', edit_task_path(task) %></td>
   </tr>
 <% end %>
 </table>
-<%= will_paginate @task%>
-
+<%= will_paginate @tasks %>
 <br />
-

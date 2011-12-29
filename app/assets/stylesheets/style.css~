@@ -273,16 +273,16 @@ footer a {
 }
 
 
-.tasklist th .current {
+.pretty th .current {
   padding-right: 12px;
   background-repeat: no-repeat;
   background-position: right center;
 }
 
-.tasklist th .asc {
+.pretty th .asc {
   background-image: url(/images/up_arrow.gif);
 }
 
-.tasklist th .desc {
+.pretty th .desc {
   background-image: url(/images/down_arrow.gif);
 }

@@ -32,7 +32,7 @@
 
 <table id="translation_client_view">
   <tr>
-    <th width= 350px>Content</th>
+    <th width= 350px>Original</th>
     <th width= 350px>Translation</th>
     <th width= 350px>Action</th>
   </tr>
@@ -47,7 +47,7 @@
         <td>Approved</td>
      <% else %>
         <td><%= link_to 'Approve',   task_status_path(task,"Approved") %>  ||
-        <%= link_to 'Reject',   task_status_path(task,0) %></td>
+        <%= link_to 'Reject',   task_status_path(task,"Rejected") %></td>
      <% end%>
       <% else %>
       <td>Not Translated</td>
@@ -57,5 +57,5 @@
   <% end %>
 
 </table>
-<%= link_to 'Edit', edit_work_path(@work) %> |
+
 <%= link_to 'Back', works_path %>

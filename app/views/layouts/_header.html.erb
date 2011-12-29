@@ -9,14 +9,15 @@
   <% if client_signed_in?%>
     <%= link_to "Home", root_path %>
     <span id = "welcome_message">Client: <%=current_client.email%></span>
+    <span >Budget: <%=current_client.budget%></span>
     <%= link_to "Sign Out", destroy_client_session_path, method: :delete %>
     <% end %>
 
     <% if worker_signed_in?%>
       <%= link_to "Home", root_path %>
-      <span id = "welcome_message">Worker: <%=current_worker.email%></span>
+      <span id = "welcome_message">Worker: <%=current_worker.email%> </span>
+      <span >Credit : <%=current_worker.credit%> </span>
       <%= link_to "Sign Out", destroy_worker_session_path, method: :delete %>
       <% end %>
-
     </div>
   </header>

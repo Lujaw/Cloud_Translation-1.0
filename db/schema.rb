@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228063045) do
+ActiveRecord::Schema.define(:version => 20111228203311) do
 
   create_table "clients", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20111228063045) do
     t.datetime "updated_at"
     t.integer  "budget"
     t.integer  "works_submitted",                       :default => 0
+    t.string   "document"
   end
 
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
@@ -40,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20111228063045) do
     t.integer  "work_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",          :default => "Pending"
+    t.string   "status",          :default => "Untranslated"
     t.boolean  "Approved",        :default => false
     t.integer  "worker_id"
   end
